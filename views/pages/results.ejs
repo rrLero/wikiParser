@@ -9,12 +9,12 @@
     <% include ../header %>
 </header>
 <main>
-    <p align="center">
+    <div align="center">
     <form action="/get" method="get">
         <button type="submit">Click To Parse Wiki</button>
         <button type="submit" formaction="/list">Click To Get Pages by Title from DB</button>
     </form>
-
+    </div>
     <ul>
         <li> <h2>Title </h2></li>
         <ul><%= result.title %></ul>
