@@ -10,11 +10,11 @@ var app     = express();
 // ==================================================
 // сообщаем Node где лежат ресурсы сайта
 app.use(express.static(__dirname + '/public'));
-app.use(express.logger());
+
 
 // устанавливаем движок EJS для представления
 app.set('view engine', 'ejs');
-
+app.set('port', (process.env.PORT || 5000));
 // УСТАНОВКА МАРШРУТОВ
 // ===================================================
 
@@ -69,6 +69,6 @@ app.route('/list').get( function (req, res) {
 
 // ЗАПУСК СЕРВЕРА
 // ==================================================
-var port = process.env.PORT || 5000;
-app.listen(port, function() {
-    console.log("Listening on " + port);
+app.listen(app.get('port'), function() {
+    console.log('Node app is running on port', app.get('port'));
+});
