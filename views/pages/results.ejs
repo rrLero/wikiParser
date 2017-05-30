@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <% include ../head %>
+</head>
+<body class="container">
+
+<header>
+    <% include ../header %>
+</header>
+<main>
+    <p align="center">
+    <form action="/get" method="get">
+        <button type="submit">Click To Parse Wiki</button>
+        <button type="submit" formaction="/list">Click To Get Pages by Title from DB</button>
+    </form>
+
+    <ul>
+        <li> <h2>Title </h2></li>
+        <ul><%= result.title %></ul>
+        <li><h2> Description </h2></li>
+        <ul><%= result.description %></ul>
+        <li><h2> Url </h2></li>
+        <ul><a href="<%= result.urlWiki %>"><%= result.urlWiki %></a> </ul>
+        <li><h2> Body </h2></li>
+        <% for (var i in result.body) {%>  <ul><h3><%=i%></h3><li><%= result.body[i] %></li></ul> <%}%>
+        <hr align="center" width="1000" size="80" color="#ff9900" />
+    </ul>
+
+
+</main>
+
+<footer>
+    <% include ../footer %>
+</footer>
+
+</body>
+</html>
